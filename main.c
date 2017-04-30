@@ -4,25 +4,29 @@
 
 int main()
 {
-//FILE *fc;
-int i, num = 15, arrey[8];
+FILE *fc;
+int i, num = 0; 
+char arr[4], a[5] = {};
 //char arrey[2][10];
 
-   // fc = fopen("coder.txt", "r");
-    /*for (i = 0; i < 1; i++)
-        fscanf(fc, "%s", arrey[i]);
+    fc = fopen("text.txt", "r");
 
-    for (i = 0; arrey[0][i] != 0; i++);
-    k = i;*/
-
-    for (i = 0; i < 8; i++){
-       arr[7-i] = (num >> i)&1;
+    for (i = 0; i < 3; i++){
+       arr[i] = fgetc (fc);
     }
 
-for (i = 0; i < 8; i++)
-    printf("%d ", arr[i]);
+    //for (i = 0; arr[0][i] != 0; i++);
+    //k = i;
+
+   /* for (i = 0; i < 8; i++){
+       arr[7-i] = (num >> i)&1;
+    }*/
+
+
+   printf("%s ", arr);
+
 printf("\n");
 
-   // fclose(fc);
+    fclose(fc);
     return 0;
 }
