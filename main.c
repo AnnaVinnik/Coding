@@ -5,7 +5,7 @@
 int main()
 {
 FILE *fc;
-int i, num = 0, j, k = 0; 
+int i, num = 0, j, k = 0, k2 = 0, number = 0; 
 char arr[5] = {};  //массив с файла
 char a[5][10] = {};  //массив с двоичным кодом чисел
 
@@ -26,19 +26,22 @@ printf ("\n k: %d \n", k);
     for (j = 0; j < k; j++){
         if (arr[j] > 48 && arr[j] < 58)
             for (i = 0; i < 8; i++){
-                a[j][i] = ((arr[j]-48)>>i)&1;
+                a[j][7 - i] = ((arr[j]-48)>>i)&1;
             }
         else if (arr[j] > 96 && arr[j] < 103)
             for (i = 0; i < 8; i++){
-                a[j][i] = ((arr[j]-87)>>i)&1;
+                a[j][7 - i] = ((arr[j]-87)>>i)&1;
             }
     }
 
-
+    for (i = 0; a[0][i] == 0 ; i++);
+    k2 = i;
+    number = k*8 - k2;//Количество значащих цифр
+printf("%d \n", number);
 
 //Выводим на экран
 for (j = 0; j < k; j++){
-    for (i = 7; i >= 0; i--){
+    for (i = 0; i < 8; i++){
         printf("%d ", a[j][i]);
     }
     printf("\n");
