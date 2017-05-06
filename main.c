@@ -4,15 +4,16 @@
 
 int main()
 {
-FILE *fc;
+FILE *fc, *fp;
 int i, num = 0, j, k = 0, k2 = 0, number = 0;
 int arr[5] = {};  //массив с файла
-char a[5][22] = {};  //массив с двоичным кодом чисел
+int a[5][22] = {};  //массив с двоичным кодом чисел
 
 
     fc = fopen("text.txt", "r");
+    fp = fopen("t2.txt", "a");
 
-    for (i = 0; i < 5; i++){
+    for (i = 0; i < 8; i++){
        arr[i] = fgetc (fc);
     }
 
@@ -20,8 +21,11 @@ char a[5][22] = {};  //массив с двоичным кодом чисел
     for (i = 0; arr[i] != 32; i++){
          k = k + 1;
     }
-printf("k: %d \n", k);
-printf ("arr[0]: %d \n", arr[0]);
+printf("k:%d\n", k);
+for (i = 0; i < k; i++)
+    printf("%d\n", arr[i]);
+
+
 //Заполняем а[0] двоичным кодом числа
     for (j = 0; j < k; j++){
         if (arr[j] > 48 && arr[j] < 58){
@@ -30,21 +34,29 @@ printf ("arr[0]: %d \n", arr[0]);
             }
         }
         else if (arr[j] > 96 && arr[j] < 103){
-                a[j][j*4] = ((arr[j]-87)>>i)&1;
+            for (i = 0; i < 4; i++){
+                a[0][(j + 1)*4 - i - 1] = ((arr[j]-87)>>i)&1;
+            }
         }
-   }
+    }
 
 
-printf("a: %d ", a[0][0]);
-printf("%d ", a[0][1]);
-printf("%d ", a[0][2]);
-printf("%d ", a[0][3]);
-printf("%d ", a[0][4]);
-printf("%d ", a[0][5]);
-printf("%d ", a[0][6]);
-printf("%d \n", a[0][7]);
+   /* for (i = 0; i < k; i++){
+        printf("%d", a[0][i]);
+    }*/
 
-/*    for (i = 0; a[0][i] == 0 ; i++){
+    //if (k < 3){
+       // for (i = 0; i < 8; i++){
+
+//a[0][0] = 3;            //fprintf(fput, "%s", a[0][0]);
+for (i = 0; i < k*4; i++){
+fprintf(fp, "%d", a[0][i]);
+}
+char prob = {' '};
+fputc(prob, fp);
+        //}
+    //}
+  /*  for (i = 0; a[0][i] == 0 ; i++){
     printf("n: %d \n", i);
     k2 = i;
     }
@@ -64,5 +76,6 @@ printf("number: %d k2: %d \n", number, k2);*/
 
 
     fclose(fc);
+    fclose(fp);
     return 0;
 }

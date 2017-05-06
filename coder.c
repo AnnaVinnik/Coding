@@ -1,6 +1,10 @@
 #include "coder.h"
 #include <stdio.h>
 
+//FILE *fput;
+
+//fput = fopen("t2.txt", "a");
+
 void cod_16(char a[5][5], int k){
 int i, j, cod[5][10] = {};    
     for (j = 0; j < k; j++){
@@ -51,7 +55,7 @@ printf("\n");
 
 }
 
-void cod_11(char a[5][5], int k, int num){
+void cod_11(char a[5][4], int k, int num){
 int i, j, z, cod[5][5] = {};
 z = 11 - num;
          cod[0][0] = 1;
@@ -68,3 +72,14 @@ for (i = 0; i < 8; i++)
     printf ("%d", cod[0][i]);
 printf("\n");
 }
+
+void cod_2(char a[5][22]){
+int i;
+     for ( i = 0; i < 8; i++){
+       //  fprintf(fput, "%c", a[0][i]);
+     }
+
+}
+
+//fclose(f2);
+

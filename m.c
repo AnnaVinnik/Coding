@@ -18,6 +18,10 @@ printf("%d \n", arr[2][3]);
 
 int main()
 {
+FILE *fp;
+
+fp = fopen("t2.txt", "a");
+int k = 5;
     /*int k[5] = {200};
     if (k[5]&11111111 <= 127&11111111){
         printf(":)\n");
@@ -26,5 +30,11 @@ int main()
         printf("=)\n");
     }*/
 
-printf("%d \n", (&127));
+fputc(k, fp);
+
+//printf("%d \n", (&127));
+
+fclose(fp);
+
 }
+
