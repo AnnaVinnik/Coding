@@ -74,10 +74,10 @@ for (i = 0; i < 8; i++)
 printf("\n");
 }
 
-void ShiftTo(char a[1][n], int to){
+void ShiftTo(char a[1][SIZE_ARRAY], int to, int since){
 int i, j;
      for (j = 0; j < to; j++){
-         for (i = 0; i < SIZE_ARRAY; i++){
+         for (i = since; i < SIZE_ARRAY - since; i++){
              a[0][SIZE_ARRAY - i] = a[0][SIZE_ARRAY - i - 1];
          }
      }
