@@ -1,5 +1,6 @@
 #include "coder.h"
 #include <stdio.h>
+#define SIZE_ARRAY 7
 
 //FILE *fput;
 
@@ -73,13 +74,16 @@ for (i = 0; i < 8; i++)
 printf("\n");
 }
 
-void cod_2(char a[5][22]){
-int i;
-     for ( i = 0; i < 8; i++){
-       //  fprintf(fput, "%c", a[0][i]);
+void ShiftTo(char a[1][n], int to){
+int i, j;
+     for (j = 0; j < to; j++){
+         for (i = 0; i < SIZE_ARRAY; i++){
+             a[0][SIZE_ARRAY - i] = a[0][SIZE_ARRAY - i - 1];
+         }
      }
 
 }
+
 
 //fclose(f2);
 
