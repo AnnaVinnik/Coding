@@ -74,7 +74,8 @@ for (i = 0; i < 8; i++)
 printf("\n");
 }
 
-void ShiftTo(char a[1][SIZE_ARRAY], int to, int since){
+void ShiftTo(char a[1][SIZE_ARRAY], int to, int since)
+{
 int i, j;
      for (j = 0; j < to; j++){
          for (i = since; i < SIZE_ARRAY - since; i++){
@@ -84,6 +85,17 @@ int i, j;
 
 }
 
+void Insert(char a[1][SIZE_ARRAY], int since, int what, int quantity)
+{
+int i, del = 1;
+    for (i = since; i < (since + quantity); i++){
+        a[0][(since + quantity) - i - 1] = what % 10;
+printf("del %d\t what %d \n", del, what);
+        what = what / 10;
+
+    }
+
+}
 
 //fclose(f2);
 
