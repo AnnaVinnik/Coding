@@ -6,6 +6,8 @@
 
 //fput = fopen("t2.txt", "a");
 
+
+
 void ShiftTo(int a[5][SIZE_ARRAY], int to, int since)
 {
 int i, j;
@@ -28,5 +30,21 @@ int i, del = 1;
 
 }
 
+void clean(int a[SIZE_ARRAY])
+{
+    for (int i = 0; i < SIZE_ARRAY; i++){
+        a[i] = 0;
+    }
+}
+
+void Delete(int a[SIZE_ARRAY], int since, int quantity)
+{
+int i, j;
+    for (j = 0; j < quantity; j++){
+        for (i = since; i < SIZE_ARRAY - 1; i++){
+            a[i] = a[i + 1];
+        }
+    }
+}
 //fclose(f2);
 
