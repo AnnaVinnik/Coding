@@ -26,7 +26,6 @@ char coder[6] = "coder", decoder[8] = "decoder";
 
  
     if (argv[1][0] == coder[0]){
-
         fd = fopen(argv[2], "r");
         fc = fopen(argv[3], "a");
 
@@ -111,9 +110,10 @@ char coder[6] = "coder", decoder[8] = "decoder";
 
         fclose(fc);
         fclose(fd);
+
     }
 //Decoder
-    if (argv[1][0] = decoder[0]){
+    else if (argv[1][0] == decoder[0] && argv[1][1] == decoder[1]){
 
         fd = fopen(argv[3], "a");
         fc = fopen(argv[2], "r");
@@ -160,6 +160,6 @@ char coder[6] = "coder", decoder[8] = "decoder";
         fclose(fc);
         fclose(fd);
     }
-
+    else printf("Usage:\ncoder encode <in-file-name> <out-file-name>\ncoder decode <in-file-name> <out-file-name>\n");
     return 0;
 }
