@@ -5,7 +5,7 @@
 int main()
 {
 FILE *fc, *fp;
-int i, qtZero = 0, j, k = 0, k2 = 0, number = 0;
+int i, qtZero = 0, j, k = 0, k2 = 0, number = 0, significantNumbers = 0;
 int arr[5] = {};  //массив с файла
 int a[5][55] = {};  //массив с двоичным кодом чисел
 char prob = {' '};
@@ -44,9 +44,12 @@ printf("k:%d\n", k);
    for (i = 0; a[0][i] == 0; i++){
       qtZero = qtZero + 1;
    }
+   printf ("qtZero %d \n", qtZero);
 
+    significantNumbers = k*4 - qtZero;
+    printf ("Significant numbers: %d \n", significantNumbers);
 
-for (i = 0; i < 32; i++)
+for (i = 0; i < (k + 1)*4; i++)
     fprintf(fp, "%d", a[0][i]);
     fputc(prob, fp);
 
@@ -58,13 +61,8 @@ for (i = 0; i < 32; i++)
         }
     }
     
-    if (k == 2){
-        for (i = 0; i < 8; i++){
-            fprintf(fp, "%d", a[0][i]);
-        }
-    }
     
-    if (k == 3){
+    if (k == 2){
         ShiftTo(a, 3, 0);
         Insert(a, 0, 110, 3);
         ShiftTo(a, 2, 8);
@@ -75,7 +73,7 @@ for (i = 0; i < 32; i++)
         fputc(prob, fp);
      }
 
-    if (k == 4){
+    if (k == 4 || k == 3){
         ShiftTo(a, 4, 0);
         Insert(a, 0, 1110, 4);
         ShiftTo(a, 2, 8);
