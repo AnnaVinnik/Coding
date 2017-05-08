@@ -1,6 +1,19 @@
 #include <stdio.h>
 #include "coder.h"
 
+int getNumber(int arr[55], FILE *fc)
+{
+int i, k = 0;
+    for (i = 0; i < 8; i++){
+        arr[i] = fgetc(fc) - 48;
+    }
+    for (i = 0; arr[i] == 1; i++){
+        k = k + 1;
+    }
+    if (k > 1)
+        return k;
+    else getNumber(arr, fc);
+}
 
 int main(int argc, char *argv[])
 {
@@ -108,12 +121,7 @@ char coder[6] = "coder", decoder[8] = "decoder";
         clean(arr);
         k = 0;
 
-        for (i = 0; i < 8; i++){
-            arr[i] = fgetc(fc) - 48;
-        }
-        for (i = 0; arr[i] == 1; i++){
-            k = k + 1;
-        }
+        k = getNumber(arr, fc);
 
         for ( i = 8; i < k*8; i++){
             arr[i] = fgetc(fc) - 48;
@@ -132,7 +140,7 @@ char coder[6] = "coder", decoder[8] = "decoder";
             }
             two = 8;
         }
-
+        
 
         for (i = 0; i < k*2; i++){
             if (a[0][i] > 9){
