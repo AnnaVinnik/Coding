@@ -2,7 +2,7 @@
 #include "coder.h"
 
 
-int main()
+int main(int argc, char *argv[])
 {
 FILE *fd, *fc;
 int i, qtZero = 0, j, k = 0, k2 = 0, number = 0, significantNumbers = 0;
@@ -10,9 +10,12 @@ int arr[55] = {};  //массив с файла
 int a[5][55] = {};  //массив с двоичным кодом чисел
 char prob = {' '};
 
+printf("%d \n", argc);
+printf("%s \n", argv[1]);
 
-    fd = fopen("text.txt", "r");
-    fc = fopen("t2.txt", "a");
+
+    fd = fopen(argv[1], "r");
+    fc = fopen(argv[2], "a");
 
     for (i = 0; i < 10; i++){
        arr[i] = fgetc (fd);
