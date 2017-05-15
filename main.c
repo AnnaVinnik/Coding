@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "coder.h"
+#include "command.h"
 
 int getNumber(int arr[55], FILE *fc)
 {
@@ -25,12 +26,12 @@ char prob = {' '};
 char coder[6] = "coder", decoder[8] = "decoder";
 
  
-    //if (argv[1][0] == coder[0]){
-    
-   // }
+    if (argv[1][0] == coder[0]){
+      encode_file(argv[2], argv[3]);
+    }
 
 //Decoder
-    if (argv[1][0] == decoder[0] && argv[1][1] == decoder[1]){
+    else if (argv[1][0] == decoder[0] && argv[1][1] == decoder[1]){
 
         fd = fopen(argv[3], "a");
         fc = fopen(argv[2], "r");
